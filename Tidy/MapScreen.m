@@ -13,13 +13,14 @@
 
 @import MapKit;
 
-@interface MapScreen () <MKMapViewDelegate, POAScreenDelegate> {
+@interface MapScreen () <MKMapViewDelegate, POAScreenDelegate, CLLocationManagerDelegate> {
     
     POAScreen *_poaScreen;
     CGRect _bottomViewRect;
     CGRect _mapViewRect;
     BOOL _POAScreenVisible;
     ARClusteredAnnotation *_selectedAnnotation;
+    CLLocationManager *_locationManager;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *viewBottom;
@@ -33,8 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setupMapDemoData];
+    [self setupLocationManager];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -62,6 +62,16 @@
     self.buttonAdd.layer.cornerRadius = self.buttonAdd.frame.size.width /2;
 }
 
+- (void)setupLocationManager {
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    _locationManager.distanceFilter = kCLDistanceFilterNone; //whenever we move
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [_locationManager startUpdatingLocation];
+    [_locationManager requestWhenInUseAuthorization];
+}
+
 - (void)setupPOAScreen {
     
     if(_poaScreen) {
@@ -76,13 +86,16 @@
     [self.viewBottom setTranslatesAutoresizingMaskIntoConstraints:NO];
 }
 
-- (void)setupMapDemoData {
+- (void)setupMapDemoDataWithLocation:(double)latitude longotude:(double)longotude  {
     
-    double lalatitudet = 56.9516828;
-    double longotude = 24.1063869;
+    if(self.mapView.annotations.count) {
+        return;
+    }
+    
+    [self.mapView setShowsUserLocation:YES];
     
     CLLocationCoordinate2D coordinate;
-    coordinate.latitude = lalatitudet;
+    coordinate.latitude = latitude;
     coordinate.longitude = longotude;
     [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate, 5000, 5000) animated:YES];
     
@@ -92,7 +105,7 @@
         CGFloat latDelta = rand()*0.125/RAND_MAX - 0.08;
         CGFloat lonDelta = rand()*0.130/RAND_MAX - 0.08;
         
-        CGFloat lat = lalatitudet;
+        CGFloat lat = latitude;
         CGFloat lng = longotude;
         
         CLLocationCoordinate2D newCoord = {lat+latDelta, lng+lonDelta};
@@ -113,7 +126,6 @@
     [self.mapView addAnnotations:pins];
 
 }
-
 
 #pragma mark UI Updates
 
@@ -190,6 +202,14 @@
     _selectedAnnotation = annotation;
     
     [self showPOAScreen:true withAnnotation:annotation];
+}
+
+#pragma mark Location Delegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *newLocation = [locations lastObject];
+    
+    [self setupMapDemoDataWithLocation:newLocation.coordinate.latitude longotude:newLocation.coordinate.longitude];
 }
 
 #pragma mark POA Screen Delegate

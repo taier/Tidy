@@ -12,6 +12,7 @@
 @interface InformationAddScreen () <UICollectionViewDelegate, UICollectionViewDataSource, MKMapViewDelegate> {
     NSMutableArray *_tagArray;
 }
+
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
@@ -22,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupData];
+    [self showCurrentLocationOnMap];
     // Do any additional setup after loading the view.
 }
 
@@ -32,7 +34,6 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    
 }
 
 #pragma mark Setup Methods
@@ -42,15 +43,19 @@
     
 }
 
+- (void)showCurrentLocationOnMap {
+    [self.mapView setShowsUserLocation:YES];
+}
+
 - (void)setupData {
     _tagArray = [NSMutableArray new];
     
     [_tagArray addObject:@"Trash"];
     [_tagArray addObject:@"Homeless"];
     [_tagArray addObject:@"Pothole"];
-    [_tagArray addObject:@"Constraction"];
+    [_tagArray addObject:@"Construction"];
     [_tagArray addObject:@"Nature"];
-    [_tagArray addObject:@"Boards"];
+    [_tagArray addObject:@"Boars"];
     [_tagArray addObject:@"Nudity"];
     [_tagArray addObject:@"Crime"];
     

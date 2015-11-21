@@ -51,12 +51,12 @@
 
 - (void)setupGesture {
     
-    UISwipeGestureRecognizer *settingbtnpress = [[UISwipeGestureRecognizer alloc]
+    UISwipeGestureRecognizer *swipeDownAction = [[UISwipeGestureRecognizer alloc]
                                                  initWithTarget:self
                                                  action:@selector(swipeToClose)];
 
-    settingbtnpress.direction = UISwipeGestureRecognizerDirectionDown;
-    [self.view addGestureRecognizer:settingbtnpress];
+    swipeDownAction.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:swipeDownAction];
 }
 
 #pragma mark Gesturs / Buttons
