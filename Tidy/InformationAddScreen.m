@@ -9,12 +9,14 @@
 #import "InformationAddScreen.h"
 @import MapKit;
 
-@interface InformationAddScreen () <UICollectionViewDelegate, UICollectionViewDataSource, MKMapViewDelegate> {
+@interface InformationAddScreen () <UICollectionViewDelegate, UICollectionViewDataSource, MKMapViewDelegate, UIImagePickerControllerDelegate> {
     NSMutableArray *_tagArray;
+    UIImagePickerController *_imagePickerController;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewPickedImage;
 
 @end
 
@@ -59,6 +61,39 @@
     [_tagArray addObject:@"Nudity"];
     [_tagArray addObject:@"Crime"];
     
+}
+
+#pragma mark Buttons
+
+- (IBAction)onCancelButtonPress:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)onAddImageButtonPress:(id)sender {
+    _imagePickerController = [[UIImagePickerController alloc] init];
+    _imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    _imagePickerController.delegate = self;
+    [self presentViewController:_imagePickerController animated:YES completion:nil];
+}
+
+#pragma mark ImagePicker Delegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //You can retrieve the actual UIImage
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    //Or you can get the image url from AssetsLibrary
+    NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
+    
+    [self.imageViewPickedImage setImage:image];
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+#pragma mark MapView Delegate
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 300, 300) animated:YES];
 }
 
 #pragma mark Collection View Delegate
