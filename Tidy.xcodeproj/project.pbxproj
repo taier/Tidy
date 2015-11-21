@@ -20,6 +20,7 @@
 		B73C0E6D1C00AF8900C9CBC8 /* trash1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B73C0E6A1C00AF8900C9CBC8 /* trash1.jpg */; };
 		B73C0E6E1C00AF8900C9CBC8 /* trash2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B73C0E6B1C00AF8900C9CBC8 /* trash2.jpg */; };
 		B73C0E6F1C00AF8900C9CBC8 /* trash3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B73C0E6C1C00AF8900C9CBC8 /* trash3.jpg */; };
+		B73C0E721C00B8EC00C9CBC8 /* InformationAddScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B73C0E711C00B8EC00C9CBC8 /* InformationAddScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		B73C0E6A1C00AF8900C9CBC8 /* trash1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = trash1.jpg; path = DemoImages/trash1.jpg; sourceTree = "<group>"; };
 		B73C0E6B1C00AF8900C9CBC8 /* trash2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = trash2.jpg; path = DemoImages/trash2.jpg; sourceTree = "<group>"; };
 		B73C0E6C1C00AF8900C9CBC8 /* trash3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = trash3.jpg; path = DemoImages/trash3.jpg; sourceTree = "<group>"; };
+		B73C0E701C00B8EC00C9CBC8 /* InformationAddScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InformationAddScreen.h; path = Tidy/InformationAddScreen.h; sourceTree = "<group>"; };
+		B73C0E711C00B8EC00C9CBC8 /* InformationAddScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InformationAddScreen.m; path = Tidy/InformationAddScreen.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 		B72626B61C007A9B00CCF4DD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B73C0E701C00B8EC00C9CBC8 /* InformationAddScreen.h */,
+				B73C0E711C00B8EC00C9CBC8 /* InformationAddScreen.m */,
 				B703AC341C005DD500E6682B /* MapScreen.h */,
 				B703AC351C005DD500E6682B /* MapScreen.m */,
 				B72626B31C007A9600CCF4DD /* POAScreen.h */,
@@ -226,6 +231,7 @@
 				B72626B51C007A9600CCF4DD /* POAScreen.m in Sources */,
 				B72626B01C006E3A00CCF4DD /* ARClusteredMapView.m in Sources */,
 				B703AC301C005DD500E6682B /* main.m in Sources */,
+				B73C0E721C00B8EC00C9CBC8 /* InformationAddScreen.m in Sources */,
 				B72626AF1C006E3A00CCF4DD /* ARClusteredAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

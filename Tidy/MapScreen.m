@@ -122,7 +122,7 @@
     _POAScreenVisible = show;
     
     CGRect newFrameBottomView = self.viewBottom.frame;
-    newFrameBottomView.origin.y = show ? 300 : self.view.frame.size.height - 44;
+    newFrameBottomView.origin.y = show ? 300 : self.view.frame.size.height;
     newFrameBottomView.size.height = show ? self.view.frame.size.height : 44;
     _bottomViewRect = newFrameBottomView;
     
