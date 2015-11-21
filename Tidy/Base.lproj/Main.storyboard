@@ -24,7 +24,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Cej-Pc-dwc"/>
                                 </connections>
                             </mapView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="weJ-5Q-U7A" userLabel="Bottom View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="weJ-5Q-U7A" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="480" width="320" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -202,6 +202,15 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QLd-AB-XPX">
+                                        <rect key="frame" x="8" y="-36" width="80" height="80"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="77k-op-kcc"/>
+                                            <constraint firstAttribute="height" constant="80" id="mXR-6Z-kUu"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -210,8 +219,11 @@
                                     <constraint firstAttribute="trailing" secondItem="NbD-oc-Dao" secondAttribute="trailing" constant="12" id="6Ak-v8-0d1"/>
                                     <constraint firstAttribute="bottom" secondItem="z4v-cK-t8u" secondAttribute="bottom" id="89z-hn-Cqy"/>
                                     <constraint firstAttribute="height" constant="44" id="AAl-Kj-wyi"/>
+                                    <constraint firstItem="QLd-AB-XPX" firstAttribute="leading" secondItem="txO-CO-Ltj" secondAttribute="leading" constant="-67" id="AS2-8T-XVy"/>
                                     <constraint firstItem="NbD-oc-Dao" firstAttribute="top" secondItem="txO-CO-Ltj" secondAttribute="top" constant="2" id="CTL-yg-tRz"/>
+                                    <constraint firstAttribute="bottom" secondItem="QLd-AB-XPX" secondAttribute="bottom" id="JRH-xC-fVe"/>
                                     <constraint firstItem="NbD-oc-Dao" firstAttribute="top" secondItem="txO-CO-Ltj" secondAttribute="top" id="Usc-dd-rKg"/>
+                                    <constraint firstItem="QLd-AB-XPX" firstAttribute="leading" secondItem="txO-CO-Ltj" secondAttribute="leading" constant="8" id="cFh-Xt-YIO"/>
                                     <constraint firstItem="z4v-cK-t8u" firstAttribute="top" secondItem="txO-CO-Ltj" secondAttribute="top" id="jm1-GT-PYu"/>
                                     <constraint firstAttribute="bottom" secondItem="NbD-oc-Dao" secondAttribute="bottom" constant="2" id="nQF-Tf-aHq"/>
                                     <constraint firstAttribute="trailing" secondItem="NbD-oc-Dao" secondAttribute="trailing" constant="8" id="pdb-4N-xFY"/>
@@ -219,6 +231,7 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="AS2-8T-XVy"/>
                                         <exclude reference="Usc-dd-rKg"/>
                                         <exclude reference="pdb-4N-xFY"/>
                                         <exclude reference="zZc-fM-YdZ"/>
