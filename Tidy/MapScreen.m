@@ -9,8 +9,17 @@
 #import "MapScreen.h"
 #import "ARClusteredMapView.h"
 #import "ARClusteredAnnotation.h"
+#import "POAScreen.h"
 
-@interface MapScreen () <MKMapViewDelegate>
+@interface MapScreen () <MKMapViewDelegate> {
+    
+    POAScreen *_poaScreen;
+    CGRect _bottomViewRect;
+    BOOL _POAScreenVisible;
+    ARClusteredAnnotation *_selectedAnnotation;
+}
+
+@property (weak, nonatomic) IBOutlet UIView *viewBottom;
 @property (weak, nonatomic) IBOutlet UIButton *buttonAdd;
 @property (weak, nonatomic) IBOutlet ARClusteredMapView *mapView;
 
@@ -33,6 +42,12 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     [self setupUIAdjustments];
+    [self updateBottomViewRect];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self setupPOAScreen];
 }
 
 
@@ -40,6 +55,19 @@
 
 - (void)setupUIAdjustments {
     self.buttonAdd.layer.cornerRadius = self.buttonAdd.frame.size.width /2;
+}
+
+- (void)setupPOAScreen {
+    
+    if(_poaScreen) {
+        return; // Already Added
+    }
+    
+    _poaScreen = [self.storyboard instantiateViewControllerWithIdentifier:@"SCREEN_POA"];
+    _poaScreen.view.bounds = self.viewBottom.bounds;
+    [self.viewBottom addSubview:_poaScreen.view];
+    
+    [self.viewBottom setTranslatesAutoresizingMaskIntoConstraints:NO];
 }
 
 - (void)setupMapDemoData {
@@ -73,6 +101,34 @@
 
 }
 
+
+#pragma mark UI Updates
+
+- (void)showPOAScreen:(BOOL)show {
+    
+    _POAScreenVisible = show;
+    
+    CGRect newFrame = self.viewBottom.frame;
+    newFrame.origin.y = show ? 300 : self.view.frame.size.height - 44;
+    _bottomViewRect = newFrame;
+    
+    [_poaScreen setAppearanceHidden:!show];
+    
+    [UIView animateWithDuration:0.35f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.viewBottom.frame = newFrame;
+    } completion:NULL];
+    
+}
+
+- (void)updateBottomViewRect {
+    
+    if(CGRectIsEmpty(_bottomViewRect)) {
+        _bottomViewRect = self.viewBottom.frame;
+    }
+    
+    self.viewBottom.frame = _bottomViewRect;
+}
+
 #pragma mark MKMapViewDelegate methods
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
@@ -81,6 +137,24 @@
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     [self.mapView updateClustering];
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    ARClusteredAnnotation *annotation = (ARClusteredAnnotation *)view.annotation;
+    _selectedAnnotation = annotation;
+    [self showPOAScreen:!_POAScreenVisible];
+    
+//    if(!_selectedAnnotation) {
+//        _selectedAnnotation = annotation;
+//        [self showPOAScreen:true];
+//        return;
+//    }
+//    
+//    if([_selectedAnnotation isEqual:annotation]) {
+//        [self showPOAScreen:false];
+//        _selectedAnnotation = NULL;
+//        return;
+//    }
 }
 
 @end
