@@ -14,9 +14,12 @@
 		B703AC3B1C005DD500E6682B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B703AC3A1C005DD500E6682B /* Assets.xcassets */; };
 		B703AC3E1C005DD500E6682B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B703AC3C1C005DD500E6682B /* LaunchScreen.storyboard */; };
 		B71376C21C00672800D446D5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71376C11C00672800D446D5 /* MapKit.framework */; };
-		B72626AF1C006E3A00CCF4DD /* ARClusteredAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B72626AC1C006E3A00CCF4DD /* ARClusteredAnnotation.m */; settings = {ASSET_TAGS = (); }; };
-		B72626B01C006E3A00CCF4DD /* ARClusteredMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B72626AE1C006E3A00CCF4DD /* ARClusteredMapView.m */; settings = {ASSET_TAGS = (); }; };
-		B72626B51C007A9600CCF4DD /* POAScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B72626B41C007A9600CCF4DD /* POAScreen.m */; settings = {ASSET_TAGS = (); }; };
+		B72626AF1C006E3A00CCF4DD /* ARClusteredAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B72626AC1C006E3A00CCF4DD /* ARClusteredAnnotation.m */; };
+		B72626B01C006E3A00CCF4DD /* ARClusteredMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B72626AE1C006E3A00CCF4DD /* ARClusteredMapView.m */; };
+		B72626B51C007A9600CCF4DD /* POAScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B72626B41C007A9600CCF4DD /* POAScreen.m */; };
+		B73C0E6D1C00AF8900C9CBC8 /* trash1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B73C0E6A1C00AF8900C9CBC8 /* trash1.jpg */; };
+		B73C0E6E1C00AF8900C9CBC8 /* trash2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B73C0E6B1C00AF8900C9CBC8 /* trash2.jpg */; };
+		B73C0E6F1C00AF8900C9CBC8 /* trash3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B73C0E6C1C00AF8900C9CBC8 /* trash3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		B72626AE1C006E3A00CCF4DD /* ARClusteredMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARClusteredMapView.m; path = Libs/ARClusteredMapView/ARClusteredMapView.m; sourceTree = "<group>"; };
 		B72626B31C007A9600CCF4DD /* POAScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POAScreen.h; path = Tidy/POAScreen.h; sourceTree = "<group>"; };
 		B72626B41C007A9600CCF4DD /* POAScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POAScreen.m; path = Tidy/POAScreen.m; sourceTree = "<group>"; };
+		B73C0E6A1C00AF8900C9CBC8 /* trash1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = trash1.jpg; path = DemoImages/trash1.jpg; sourceTree = "<group>"; };
+		B73C0E6B1C00AF8900C9CBC8 /* trash2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = trash2.jpg; path = DemoImages/trash2.jpg; sourceTree = "<group>"; };
+		B73C0E6C1C00AF8900C9CBC8 /* trash3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = trash3.jpg; path = DemoImages/trash3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,9 @@
 		B703AC2E1C005DD500E6682B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B73C0E6A1C00AF8900C9CBC8 /* trash1.jpg */,
+				B73C0E6B1C00AF8900C9CBC8 /* trash2.jpg */,
+				B73C0E6C1C00AF8900C9CBC8 /* trash3.jpg */,
 				B72626B71C007ABB00CCF4DD /* Frameworks */,
 				B703AC3F1C005DD500E6682B /* Info.plist */,
 				B703AC3A1C005DD500E6682B /* Assets.xcassets */,
@@ -196,7 +205,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B73C0E6D1C00AF8900C9CBC8 /* trash1.jpg in Resources */,
 				B703AC3E1C005DD500E6682B /* LaunchScreen.storyboard in Resources */,
+				B73C0E6F1C00AF8900C9CBC8 /* trash3.jpg in Resources */,
+				B73C0E6E1C00AF8900C9CBC8 /* trash2.jpg in Resources */,
 				B703AC3B1C005DD500E6682B /* Assets.xcassets in Resources */,
 				B703AC391C005DD500E6682B /* Main.storyboard in Resources */,
 			);

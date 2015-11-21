@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol POAScreenDelegate <NSObject>
+
+- (void)closePOAScreen;
+
+@end
+
 @interface POAScreen : UIViewController
+
+@property id<POAScreenDelegate> delegate;
 
 - (void)setAppearanceHidden:(BOOL)hidden;
 

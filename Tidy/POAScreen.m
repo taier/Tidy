@@ -8,7 +8,7 @@
 
 #import "POAScreen.h"
 
-@interface POAScreen ()
+@interface POAScreen () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *textViewDescription;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewImages;
@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setAppearanceHidden:true];
+    [self setupUIAdjustments];
+    [self setupGesture];
     // Do any additional setup after loading the view.
 }
 
@@ -31,11 +33,58 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark Setup 
+
+- (void)setupUIAdjustments {
+    self.buttonUpVote.layer.cornerRadius = self.buttonUpVote.frame.size.width /2;
+}
+
+- (void)setupGesture {
+    
+    UISwipeGestureRecognizer *settingbtnpress = [[UISwipeGestureRecognizer alloc]
+                                                 initWithTarget:self
+                                                 action:@selector(swipeToClose)];
+
+    settingbtnpress.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:settingbtnpress];
+}
+
+#pragma mark Gesture
+
+- (void)swipeToClose {
+    [self.delegate closePOAScreen];
+}
+
 #pragma mark UI Update methods
 
 - (void)setAppearanceHidden:(BOOL)hidden {
-    self.labelCount.hidden = hidden;
-    self.buttonUpVote.hidden = hidden;
+    
+    [UIView animateWithDuration:0.35f animations:^{
+        self.labelCount.alpha = hidden ? 0 : 1;
+        self.buttonUpVote.alpha = hidden ? 0 : 1;
+    }];
 }
+
+#pragma mark CollectionView Delegates
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 3;
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"default_cell" forIndexPath:indexPath];
+    
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"trash%li.jpg",(indexPath.item + 1)]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = cell.contentView.bounds;
+
+    [cell.contentView addSubview:imageView];
+    
+    return cell;
+}
+
 
 @end
