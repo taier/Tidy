@@ -13,6 +13,7 @@
     int _score;
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewPin;
 @property (weak, nonatomic) IBOutlet UITextView *textViewDescription;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewImages;
 @property (weak, nonatomic) IBOutlet UIButton *buttonShare;
@@ -94,6 +95,7 @@
     [UIView animateWithDuration:0.35f animations:^{
         self.labelCount.alpha = hidden ? 0 : 1;
         self.buttonUpVote.alpha = hidden ? 0 : 1;
+        self.imageViewPin.alpha = hidden ? 0 : 1;
     }];
 }
 

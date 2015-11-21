@@ -7,11 +7,13 @@
 //
 
 #import "InformationAddScreen.h"
+@import MapKit;
 
-@interface InformationAddScreen () <UICollectionViewDelegate, UICollectionViewDataSource> {
+@interface InformationAddScreen () <UICollectionViewDelegate, UICollectionViewDataSource, MKMapViewDelegate> {
     NSMutableArray *_tagArray;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
