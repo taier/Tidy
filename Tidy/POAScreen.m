@@ -8,7 +8,10 @@
 
 #import "POAScreen.h"
 
-@interface POAScreen () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface POAScreen () <UICollectionViewDataSource, UICollectionViewDelegate> {
+    
+    int _score;
+}
 
 @property (weak, nonatomic) IBOutlet UITextView *textViewDescription;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewImages;
@@ -24,7 +27,9 @@
     [super viewDidLoad];
     [self setAppearanceHidden:true];
     [self setupUIAdjustments];
+    [self setupData];
     [self setupGesture];
+    [self updateVoteCount:true];
     // Do any additional setup after loading the view.
 }
 
@@ -33,11 +38,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark Setup 
 
 - (void)setupUIAdjustments {
     self.buttonUpVote.layer.cornerRadius = self.buttonUpVote.frame.size.width /2;
+}
+
+- (void)setupData {
+    _score = 233;
 }
 
 - (void)setupGesture {
@@ -50,13 +58,36 @@
     [self.view addGestureRecognizer:settingbtnpress];
 }
 
-#pragma mark Gesture
+#pragma mark Gesturs / Buttons
 
 - (void)swipeToClose {
     [self.delegate closePOAScreen];
 }
 
+- (IBAction)onUpVoteButtonPress:(id)sender {
+    [self updateVoteCount:true];
+}
+- (IBAction)onShareButton:(id)sender {
+    
+    UIImage *trashImage = [UIImage imageNamed:@"trash1.jpg"];
+    NSString *message = [NSString stringWithFormat:@"TRASH WITH SCORE - %i",_score];
+    
+    // NSLog(@"%@",shareBody);
+    NSArray *postItems = @[message,trashImage];
+    UIActivityViewController *shareActivityVC = [[UIActivityViewController alloc]
+                        initWithActivityItems:postItems
+                        applicationActivities:nil];
+
+    
+    [self.mainController presentViewController:shareActivityVC animated:YES completion:nil];
+}
+
 #pragma mark UI Update methods
+
+- (void)updateVoteCount:(BOOL)increase {
+    _score = increase ? _score + 1 : _score - 1;
+    self.labelCount.text = [NSString stringWithFormat:@"%i",_score];
+}
 
 - (void)setAppearanceHidden:(BOOL)hidden {
     

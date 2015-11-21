@@ -183,17 +183,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txO-CO-Ltj" userLabel="TopView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="238" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4v-cK-t8u">
-                                        <rect key="frame" x="192" y="0.0" width="60" height="44"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="ICY-sa-CCL"/>
-                                            <constraint firstAttribute="width" constant="60" id="y68-DF-VO7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NbD-oc-Dao" userLabel="Button Add">
                                         <rect key="frame" x="268" y="2" width="40" height="40"/>
                                         <animations/>
@@ -213,12 +202,26 @@
                                                 <exclude reference="knh-gX-xT9"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="onUpVoteButtonPress:" destination="gjY-Gv-hMk" eventType="touchUpInside" id="kvq-w7-lFq"/>
+                                        </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="238" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4v-cK-t8u">
+                                        <rect key="frame" x="210" y="0.0" width="50" height="44"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="ICY-sa-CCL"/>
+                                            <constraint firstAttribute="width" constant="50" id="y68-DF-VO7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="NbD-oc-Dao" firstAttribute="leading" secondItem="z4v-cK-t8u" secondAttribute="trailing" constant="16" id="3D2-M1-AVh"/>
+                                    <constraint firstItem="NbD-oc-Dao" firstAttribute="leading" secondItem="z4v-cK-t8u" secondAttribute="trailing" constant="8" id="3D2-M1-AVh"/>
                                     <constraint firstAttribute="trailing" secondItem="NbD-oc-Dao" secondAttribute="trailing" constant="12" id="6Ak-v8-0d1"/>
                                     <constraint firstAttribute="bottom" secondItem="z4v-cK-t8u" secondAttribute="bottom" id="89z-hn-Cqy"/>
                                     <constraint firstAttribute="height" constant="44" id="AAl-Kj-wyi"/>
@@ -301,6 +304,9 @@
                                     <constraint firstAttribute="width" constant="44" id="iOx-Qm-7bt"/>
                                 </constraints>
                                 <state key="normal" image="Share"/>
+                                <connections>
+                                    <action selector="onShareButton:" destination="gjY-Gv-hMk" eventType="touchUpInside" id="iBk-ml-Anl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>

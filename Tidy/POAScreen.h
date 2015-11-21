@@ -18,6 +18,8 @@
 
 @property id<POAScreenDelegate> delegate;
 
+@property (nonatomic, strong) UIViewController *mainController;
+
 - (void)setAppearanceHidden:(BOOL)hidden;
 
 @end

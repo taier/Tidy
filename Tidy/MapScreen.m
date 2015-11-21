@@ -70,6 +70,7 @@
     
     _poaScreen = [self.storyboard instantiateViewControllerWithIdentifier:@"SCREEN_POA"];
     _poaScreen.delegate = self;
+    _poaScreen.mainController = self;
     [self.viewBottom addSubview:_poaScreen.view];
     
     [self.viewBottom setTranslatesAutoresizingMaskIntoConstraints:NO];
