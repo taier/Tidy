@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		B703AC301C005DD500E6682B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B703AC2F1C005DD500E6682B /* main.m */; };
 		B703AC331C005DD500E6682B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B703AC321C005DD500E6682B /* AppDelegate.m */; };
-		B703AC361C005DD500E6682B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B703AC351C005DD500E6682B /* ViewController.m */; };
+		B703AC361C005DD500E6682B /* MapScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B703AC351C005DD500E6682B /* MapScreen.m */; };
 		B703AC391C005DD500E6682B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B703AC371C005DD500E6682B /* Main.storyboard */; };
 		B703AC3B1C005DD500E6682B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B703AC3A1C005DD500E6682B /* Assets.xcassets */; };
 		B703AC3E1C005DD500E6682B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B703AC3C1C005DD500E6682B /* LaunchScreen.storyboard */; };
+		B71376C21C00672800D446D5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71376C11C00672800D446D5 /* MapKit.framework */; };
+		B72626AF1C006E3A00CCF4DD /* ARClusteredAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B72626AC1C006E3A00CCF4DD /* ARClusteredAnnotation.m */; settings = {ASSET_TAGS = (); }; };
+		B72626B01C006E3A00CCF4DD /* ARClusteredMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B72626AE1C006E3A00CCF4DD /* ARClusteredMapView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +23,17 @@
 		B703AC2F1C005DD500E6682B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B703AC311C005DD500E6682B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B703AC321C005DD500E6682B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B703AC341C005DD500E6682B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B703AC351C005DD500E6682B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B703AC341C005DD500E6682B /* MapScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapScreen.h; sourceTree = "<group>"; };
+		B703AC351C005DD500E6682B /* MapScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapScreen.m; sourceTree = "<group>"; };
 		B703AC381C005DD500E6682B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B703AC3A1C005DD500E6682B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B703AC3D1C005DD500E6682B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B703AC3F1C005DD500E6682B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B71376C11C00672800D446D5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B72626AB1C006E3A00CCF4DD /* ARClusteredAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARClusteredAnnotation.h; path = Libs/ARClusteredMapView/ARClusteredAnnotation.h; sourceTree = "<group>"; };
+		B72626AC1C006E3A00CCF4DD /* ARClusteredAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARClusteredAnnotation.m; path = Libs/ARClusteredMapView/ARClusteredAnnotation.m; sourceTree = "<group>"; };
+		B72626AD1C006E3A00CCF4DD /* ARClusteredMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARClusteredMapView.h; path = Libs/ARClusteredMapView/ARClusteredMapView.h; sourceTree = "<group>"; };
+		B72626AE1C006E3A00CCF4DD /* ARClusteredMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARClusteredMapView.m; path = Libs/ARClusteredMapView/ARClusteredMapView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B71376C21C00672800D446D5 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,10 +67,11 @@
 		B703AC2D1C005DD500E6682B /* Tidy */ = {
 			isa = PBXGroup;
 			children = (
+				B72626B11C006E3E00CCF4DD /* Libs */,
 				B703AC311C005DD500E6682B /* AppDelegate.h */,
 				B703AC321C005DD500E6682B /* AppDelegate.m */,
-				B703AC341C005DD500E6682B /* ViewController.h */,
-				B703AC351C005DD500E6682B /* ViewController.m */,
+				B703AC341C005DD500E6682B /* MapScreen.h */,
+				B703AC351C005DD500E6682B /* MapScreen.m */,
 				B703AC371C005DD500E6682B /* Main.storyboard */,
 				B703AC3A1C005DD500E6682B /* Assets.xcassets */,
 				B703AC3C1C005DD500E6682B /* LaunchScreen.storyboard */,
@@ -74,9 +84,29 @@
 		B703AC2E1C005DD500E6682B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B71376C11C00672800D446D5 /* MapKit.framework */,
 				B703AC2F1C005DD500E6682B /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B72626B11C006E3E00CCF4DD /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				B72626B21C006E4900CCF4DD /* ARClusteredAnnotation */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		B72626B21C006E4900CCF4DD /* ARClusteredAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				B72626AB1C006E3A00CCF4DD /* ARClusteredAnnotation.h */,
+				B72626AC1C006E3A00CCF4DD /* ARClusteredAnnotation.m */,
+				B72626AD1C006E3A00CCF4DD /* ARClusteredMapView.h */,
+				B72626AE1C006E3A00CCF4DD /* ARClusteredMapView.m */,
+			);
+			name = ARClusteredAnnotation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B703AC361C005DD500E6682B /* ViewController.m in Sources */,
+				B703AC361C005DD500E6682B /* MapScreen.m in Sources */,
 				B703AC331C005DD500E6682B /* AppDelegate.m in Sources */,
+				B72626B01C006E3A00CCF4DD /* ARClusteredMapView.m in Sources */,
 				B703AC301C005DD500E6682B /* main.m in Sources */,
+				B72626AF1C006E3A00CCF4DD /* ARClusteredAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +294,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Tidy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sudo.Tidy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -273,6 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Tidy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sudo.Tidy;
 				PRODUCT_NAME = "$(TARGET_NAME)";

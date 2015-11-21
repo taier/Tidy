@@ -1,25 +1,109 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapScreen" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbR-OO-VgF" userLabel="Navigation View background">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="fue-hh-pKq"/>
+                                    <constraint firstAttribute="width" constant="320" id="ngo-K3-biJ"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsx-32-YwK">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem title="Tidy" id="nTF-EG-Nff"/>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rbc-b5-O2I" customClass="ARClusteredMapView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                                <animations/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="jbJ-eK-sIf"/>
+                                </connections>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="weJ-5Q-U7A" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="47z-ee-mbG"/>
+                                    <constraint firstAttribute="height" constant="44" id="QC3-5p-GA0"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="47z-ee-mbG"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soa-XR-Grs" userLabel="Button Add">
+                                <rect key="frame" x="120" y="390" width="80" height="80"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="EE1-Oc-adf"/>
+                                    <constraint firstAttribute="width" constant="80" id="G2k-rE-YeH"/>
+                                    <constraint firstAttribute="height" constant="80" id="KZQ-kf-giM"/>
+                                    <constraint firstAttribute="width" constant="80" id="tif-yY-aAN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="76"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="-17" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="+"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="EE1-Oc-adf"/>
+                                        <exclude reference="G2k-rE-YeH"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xsx-32-YwK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="26y-aY-kyP"/>
+                            <constraint firstItem="weJ-5Q-U7A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3Fb-Pk-u3V"/>
+                            <constraint firstAttribute="trailing" secondItem="weJ-5Q-U7A" secondAttribute="trailing" id="4aE-os-GkV"/>
+                            <constraint firstAttribute="trailing" secondItem="GbR-OO-VgF" secondAttribute="trailing" id="8u0-Qs-b3B"/>
+                            <constraint firstItem="GbR-OO-VgF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="A5S-Jm-VDv"/>
+                            <constraint firstItem="Rbc-b5-O2I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BLe-1G-7DM"/>
+                            <constraint firstItem="soa-XR-Grs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HMl-0m-XHE"/>
+                            <constraint firstItem="Rbc-b5-O2I" firstAttribute="top" secondItem="xsx-32-YwK" secondAttribute="bottom" id="JmR-73-XA8"/>
+                            <constraint firstAttribute="trailing" secondItem="xsx-32-YwK" secondAttribute="trailing" id="SRg-TK-o7Z"/>
+                            <constraint firstItem="xsx-32-YwK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="W14-n3-Mdx"/>
+                            <constraint firstItem="weJ-5Q-U7A" firstAttribute="top" secondItem="Rbc-b5-O2I" secondAttribute="bottom" id="gZw-tl-mmL"/>
+                            <constraint firstAttribute="trailing" secondItem="Rbc-b5-O2I" secondAttribute="trailing" id="icq-QQ-kVR"/>
+                            <constraint firstItem="GbR-OO-VgF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lfc-UO-5Wq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="weJ-5Q-U7A" secondAttribute="bottom" id="q4w-dd-bch"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="soa-XR-Grs" secondAttribute="bottom" constant="10" id="uAS-II-0vt"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="buttonAdd" destination="soa-XR-Grs" id="z01-cz-vwI"/>
+                        <outlet property="mapView" destination="Rbc-b5-O2I" id="sXn-W0-Pwe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="625" y="472"/>
         </scene>
     </scenes>
 </document>
