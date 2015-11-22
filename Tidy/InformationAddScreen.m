@@ -7,6 +7,7 @@
 //
 
 #import "InformationAddScreen.h"
+#import "TagViewCell.h"
 @import MapKit;
 
 @interface InformationAddScreen () <UICollectionViewDelegate, UICollectionViewDataSource, MKMapViewDelegate, UIImagePickerControllerDelegate> {
@@ -27,6 +28,8 @@
     [self setupData];
     [self showCurrentLocationOnMap];
     // Do any additional setup after loading the view.
+    
+    self.mapView.layer.cornerRadius = 4.0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,7 +44,6 @@
 #pragma mark Setup Methods
 
 - (void)updateUI {
-//    self.mainScrollView.contentSize =
     
 }
 
@@ -105,14 +107,10 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell_tag" forIndexPath:indexPath];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:cell.contentView.frame];
-    label.text = [_tagArray objectAtIndex:indexPath.item];
-    [cell.contentView addSubview:label];
-    
+    TagViewCell *cell = (TagViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell_tag" forIndexPath:indexPath];
+    cell.title = [_tagArray objectAtIndex:indexPath.item];
+    [cell setup];
     return cell;
-
 }
 
 @end

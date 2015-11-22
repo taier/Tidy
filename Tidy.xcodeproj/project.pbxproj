@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66C6762A1C01C424006C0C2D /* TagViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C676291C01C424006C0C2D /* TagViewCell.m */; };
 		B703AC301C005DD500E6682B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B703AC2F1C005DD500E6682B /* main.m */; };
 		B703AC331C005DD500E6682B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B703AC321C005DD500E6682B /* AppDelegate.m */; };
 		B703AC361C005DD500E6682B /* MapScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B703AC351C005DD500E6682B /* MapScreen.m */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66C676281C01C424006C0C2D /* TagViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagViewCell.h; sourceTree = "<group>"; };
+		66C676291C01C424006C0C2D /* TagViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagViewCell.m; sourceTree = "<group>"; };
 		B703AC2B1C005DD500E6682B /* Tidy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tidy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B703AC2F1C005DD500E6682B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B703AC311C005DD500E6682B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 			children = (
 				B73C0E701C00B8EC00C9CBC8 /* InformationAddScreen.h */,
 				B73C0E711C00B8EC00C9CBC8 /* InformationAddScreen.m */,
+				66C676281C01C424006C0C2D /* TagViewCell.h */,
+				66C676291C01C424006C0C2D /* TagViewCell.m */,
 				B703AC341C005DD500E6682B /* MapScreen.h */,
 				B703AC351C005DD500E6682B /* MapScreen.m */,
 				B72626B31C007A9600CCF4DD /* POAScreen.h */,
@@ -233,6 +238,7 @@
 				B703AC301C005DD500E6682B /* main.m in Sources */,
 				B73C0E721C00B8EC00C9CBC8 /* InformationAddScreen.m in Sources */,
 				B72626AF1C006E3A00CCF4DD /* ARClusteredAnnotation.m in Sources */,
+				66C6762A1C01C424006C0C2D /* TagViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
