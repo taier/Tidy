@@ -7,6 +7,8 @@
 //
 
 #import "POAScreen.h"
+#import "AppDelegate.h"
+#import "POAObject.h"
 
 @interface POAScreen () <UICollectionViewDataSource, UICollectionViewDelegate> {
     
@@ -40,6 +42,20 @@
 }
 
 #pragma mark Setup 
+
+- (void)setupLastPin {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    if(!appDelegate.lastAddedPOAObject) {
+        return;
+    }
+    
+    self.labelTitle.text = appDelegate.lastAddedPOAObject.title;
+    self.textViewDescription.text = appDelegate.lastAddedPOAObject.desc;
+    _score = 0;
+    [self updateVoteCount:true];
+    
+}
 
 - (void)setupUIAdjustments {
     self.buttonUpVote.layer.cornerRadius = self.buttonUpVote.frame.size.width /2;
@@ -91,6 +107,10 @@
 }
 
 - (void)setAppearanceHidden:(BOOL)hidden {
+    
+    if(!hidden) {
+        [self setupLastPin];
+    }
     
     [UIView animateWithDuration:0.35f animations:^{
         self.labelCount.alpha = hidden ? 0 : 1;
