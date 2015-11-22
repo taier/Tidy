@@ -58,7 +58,7 @@
     coordinate.latitude = 56.9536134;
     coordinate.longitude = 24.0747749;
     
-    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate, 5000, 5000) animated:YES];
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate, 300, 300) animated:YES];
     
     [self.mapView setShowsUserLocation:YES];
 }
@@ -124,7 +124,7 @@
 #pragma mark MapView Delegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 300, 300) animated:YES];
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 300, 300) animated:NO];
 }
 
 #pragma mark Collection View Delegate

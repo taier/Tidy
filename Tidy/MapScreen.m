@@ -281,8 +281,9 @@
 #pragma mark InformationAddScreenDeleagte 
 
 - (void)didFinishAdding:(POAObject *)addedObject {
-    
-    
+    if(addedObject == NULL) {
+        return;
+    }
 }
 
 @end
