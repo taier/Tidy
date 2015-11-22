@@ -80,7 +80,15 @@
     [_locationManager startUpdatingLocation];
     [_locationManager requestWhenInUseAuthorization];
     
-    [self setupMapDemoDataWithLocation:56.9536134 longotude:24.0747749];
+    
+    
+    CLLocationCoordinate2D coordinate;
+    coordinate.latitude = 56.9536134;
+    coordinate.longitude = 24.0747749;
+    
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate, 5000, 5000) animated:YES];
+    
+//    [self setupMapDemoDataWithLocation:56.9536134 longotude:24.0747749];
 }
 
 - (void)setupPOAScreen {
@@ -155,7 +163,7 @@
     
     MSTable *goTidyTable = [client tableWithName:@"gotidy_entities"];
     
-    for(int i=0;i<3;i++) {
+    for(int i=0;i<30;i++) {
         CGFloat latDelta = rand()*0.125/RAND_MAX - 0.08 + 56.9536134;
         CGFloat lonDelta = rand()*0.130/RAND_MAX - 0.08 + 24.0747749;
         
@@ -182,9 +190,37 @@
     MSTable *table = [client tableWithName:@"gotidy_entities"];
     
     [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
-        NSLog(@"%@",result.items);
+       for (NSDictionary *dict in result.items) {
+           [self addPointFromRemoteDataDict:dict];
+       }
     }];
 
+}
+
+- (void)addPointFromRemoteDataDict:(NSDictionary *)dict {
+    
+//    NSDictionary *newDict = @{@"latitude" : [NSString stringWithFormat:@"%0.8f",latDelta],
+//                              @"longtitude" : [NSString stringWithFormat:@"%0.8f",lonDelta],
+//                              @"title" : title,
+//                              @"description" : desc,
+//                              @"votedcount" :[NSString stringWithFormat:@"%i",i],
+//                              @"image" : [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]};
+    
+    CLLocationCoordinate2D coordinate;
+    coordinate.latitude = [dict[@"latitude"] floatValue];
+    coordinate.longitude = [dict[@"longtitude"] floatValue];
+
+    
+    // Add an annotation
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = coordinate;
+    point.title = @"New Point!";
+    point.subtitle = @"Clean ME!";
+    
+    [self.mapView addAnnotation:point];
+
+    
+    
 }
 
 #pragma mark UI Updates
