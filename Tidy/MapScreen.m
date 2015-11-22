@@ -11,12 +11,13 @@
 #import "ARClusteredMapView.h"
 #import "ARClusteredAnnotation.h"
 #import "POAScreen.h"
+#import "InformationAddScreen.h"
 
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 @import MapKit;
 
-@interface MapScreen () <MKMapViewDelegate, POAScreenDelegate, CLLocationManagerDelegate> {
+@interface MapScreen () <MKMapViewDelegate, POAScreenDelegate, CLLocationManagerDelegate, InformationAddScreenDeleagte> {
     
     POAScreen *_poaScreen;
     CGRect _bottomViewRect;
@@ -26,8 +27,6 @@
     CLLocationManager *_locationManager;
     
     NSMutableArray *_pinsData;
-    
-    MSSyncTable *_syncTable;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *viewBottom;
@@ -136,6 +135,10 @@
     
     [self.mapView addAnnotations:pins];
 
+}
+
+- (IBAction)onNewPOAButtonPress:(id)sender {
+    
 }
 
 #pragma mark Data

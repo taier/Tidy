@@ -53,6 +53,7 @@
 		B73C0E711C00B8EC00C9CBC8 /* InformationAddScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InformationAddScreen.m; path = Tidy/InformationAddScreen.m; sourceTree = "<group>"; };
 		B78085631C01DA3700304913 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
 		B78085651C01DFB500304913 /* placeholder_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder_image.png; path = DemoImages/placeholder_image.png; sourceTree = "<group>"; };
+		B78085671C01E3B800304913 /* POAObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POAObject.h; path = Tidy/POAObject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B72626B61C007A9B00CCF4DD /* ViewControllers */,
+				B780856A1C01E3BB00304913 /* POA Object */,
 				B72626B11C006E3E00CCF4DD /* Libs */,
 				B72626B81C007ACE00CCF4DD /* UI */,
 				B703AC2E1C005DD500E6682B /* Supporting Files */,
@@ -163,6 +165,15 @@
 				B703AC3C1C005DD500E6682B /* LaunchScreen.storyboard */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		B780856A1C01E3BB00304913 /* POA Object */ = {
+			isa = PBXGroup;
+			children = (
+				B78085671C01E3B800304913 /* POAObject.h */,
+			);
+			name = "POA Object";
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

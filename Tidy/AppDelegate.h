@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "POAObject.h"
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) MSClient *client;
+
+@property (strong, nonatomic) POAObject *lastAddedPOAObject;
 
 
 @end

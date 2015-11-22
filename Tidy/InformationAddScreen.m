@@ -6,9 +6,12 @@
 //  Copyright © 2015 Deniss Kaibagarovs. All rights reserved.
 //
 
+@import MapKit;
+
 #import "InformationAddScreen.h"
 #import "TagViewCell.h"
-@import MapKit;
+#import "POAObject.h"
+#import "AppDelegate.h"
 
 @interface InformationAddScreen () <UICollectionViewDelegate, UICollectionViewDataSource, MKMapViewDelegate, UIImagePickerControllerDelegate> {
     NSMutableArray *_tagArray;
@@ -18,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPickedImage;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldTtitle;
+@property (weak, nonatomic) IBOutlet UITextView *textViewDescription;
 
 @end
 
@@ -68,7 +73,23 @@
 #pragma mark Buttons
 
 - (IBAction)onCancelButtonPress:(id)sender {
+    [self.delegate didFinishAdding:NULL];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)onAddPOAButtonPress:(id)sender {
+    POAObject *newPOAObject = [POAObject new];
+    
+    newPOAObject.title = [self.textFieldTtitle text];
+    newPOAObject.desc = [self.textViewDescription text];
+    newPOAObject.image = self.imageViewPickedImage.image;
+    newPOAObject.latitude = 56.9536134;
+    newPOAObject.longotude = 24.0747749;
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.lastAddedPOAObject = newPOAObject;
+    
+    [self.delegate didFinishAdding:newPOAObject];
 }
 
 - (IBAction)onAddImageButtonPress:(id)sender {
@@ -86,7 +107,6 @@
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     //Or you can get the image url from AssetsLibrary
     NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
-    
     [self.imageViewPickedImage setImage:image];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];

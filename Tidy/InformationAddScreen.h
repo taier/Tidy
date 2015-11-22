@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class  POAObject;
+
+@protocol InformationAddScreenDeleagte <NSObject>
+
+- (void)didFinishAdding:(POAObject *)addedObject;
+
+@end
+
 @interface InformationAddScreen : UIViewController
+@property id<InformationAddScreenDeleagte> delegate;
+
 
 @end

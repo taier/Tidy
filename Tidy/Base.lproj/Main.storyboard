@@ -78,7 +78,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="Kqv-FY-M6y" kind="show" id="sok-j8-0UT"/>
+                                    <action selector="onNewPOAButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0xt-B1-9yt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -360,7 +360,7 @@
         <!--Information Add Screen-->
         <scene sceneID="m5Y-hY-W9c">
             <objects>
-                <viewController id="Kqv-FY-M6y" customClass="InformationAddScreen" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SCREEN_NEW_POA" id="Kqv-FY-M6y" customClass="InformationAddScreen" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DkL-jZ-m6d"/>
                         <viewControllerLayoutGuide type="bottom" id="GW8-Zc-5fu"/>
@@ -382,7 +382,11 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Add Point" id="Yam-3F-Wyo">
-                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="ZNC-GW-UmS"/>
+                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="ZNC-GW-UmS">
+                                            <connections>
+                                                <action selector="onCancelButtonPress:" destination="Kqv-FY-M6y" id="aFQ-cd-Y4h"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -509,15 +513,6 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i9G-0R-nEU">
-                                        <rect key="frame" x="8" y="642" width="304" height="30"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="ZBw-1E-cco"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="GCc-kn-rf8">
                                         <rect key="frame" x="8" y="709" width="304" height="80"/>
                                         <animations/>
@@ -542,7 +537,19 @@
                                                 <exclude reference="def-hZ-O5I"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="onAddPOAButtonPress:" destination="Kqv-FY-M6y" eventType="touchUpInside" id="axU-NF-aPQ"/>
+                                        </connections>
                                     </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bad thing laying around :(" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i9G-0R-nEU">
+                                        <rect key="frame" x="8" y="642" width="304" height="30"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ZBw-1E-cco"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <animations/>
                                 <constraints>
@@ -637,6 +644,8 @@
                         <outlet property="imageViewPickedImage" destination="E8V-Ei-ZwF" id="Sxj-aM-ffn"/>
                         <outlet property="mainScrollView" destination="M3O-YT-oL0" id="yAc-lo-GJG"/>
                         <outlet property="mapView" destination="m6B-zG-bx9" id="gME-IT-7A4"/>
+                        <outlet property="textFieldTtitle" destination="i9G-0R-nEU" id="yUO-Bz-mpI"/>
+                        <outlet property="textViewDescription" destination="GCc-kn-rf8" id="X2a-br-8O9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feZ-Up-aoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
