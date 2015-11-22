@@ -53,6 +53,8 @@
     self.labelTitle.text = appDelegate.lastAddedPOAObject.title;
     self.textViewDescription.text = appDelegate.lastAddedPOAObject.desc;
     _score = 0;
+    [self.collectionViewImages reloadData];
+    
     [self updateVoteCount:true];
     
 }
@@ -122,7 +124,7 @@
 #pragma mark CollectionView Delegates
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+    return 1;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -131,6 +133,12 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"default_cell" forIndexPath:indexPath];
     
     UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"trash%li.jpg",(indexPath.item + 1)]];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if(appDelegate.lastAddedPOAObject) {
+        image = appDelegate.lastAddedPOAObject.image;
+    }
+    
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.frame = cell.contentView.bounds;
 
