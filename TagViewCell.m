@@ -15,6 +15,7 @@
     self.layer.borderWidth = 0.5;
     self.layer.borderColor = [UIColor blackColor].CGColor;
     self.titleLabel.text = self.title;
+    self.alpha = 0.6;
 }
 
 @end

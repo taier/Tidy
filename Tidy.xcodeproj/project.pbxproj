@@ -23,6 +23,7 @@
 		B73C0E6F1C00AF8900C9CBC8 /* trash3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B73C0E6C1C00AF8900C9CBC8 /* trash3.jpg */; };
 		B73C0E721C00B8EC00C9CBC8 /* InformationAddScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B73C0E711C00B8EC00C9CBC8 /* InformationAddScreen.m */; };
 		B78085641C01DA3700304913 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B78085631C01DA3700304913 /* WindowsAzureMobileServices.framework */; };
+		B78085661C01DFB500304913 /* placeholder_image.png in Resources */ = {isa = PBXBuildFile; fileRef = B78085651C01DFB500304913 /* placeholder_image.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		B73C0E701C00B8EC00C9CBC8 /* InformationAddScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InformationAddScreen.h; path = Tidy/InformationAddScreen.h; sourceTree = "<group>"; };
 		B73C0E711C00B8EC00C9CBC8 /* InformationAddScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InformationAddScreen.m; path = Tidy/InformationAddScreen.m; sourceTree = "<group>"; };
 		B78085631C01DA3700304913 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
+		B78085651C01DFB500304913 /* placeholder_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder_image.png; path = DemoImages/placeholder_image.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		B703AC2E1C005DD500E6682B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B78085651C01DFB500304913 /* placeholder_image.png */,
 				B73C0E6A1C00AF8900C9CBC8 /* trash1.jpg */,
 				B73C0E6B1C00AF8900C9CBC8 /* trash2.jpg */,
 				B73C0E6C1C00AF8900C9CBC8 /* trash3.jpg */,
@@ -219,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B78085661C01DFB500304913 /* placeholder_image.png in Resources */,
 				B73C0E6D1C00AF8900C9CBC8 /* trash1.jpg in Resources */,
 				B703AC3E1C005DD500E6682B /* LaunchScreen.storyboard in Resources */,
 				B73C0E6F1C00AF8900C9CBC8 /* trash3.jpg in Resources */,
