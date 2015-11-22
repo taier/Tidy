@@ -20,6 +20,7 @@
 @interface MapScreen () <MKMapViewDelegate, POAScreenDelegate, CLLocationManagerDelegate, InformationAddScreenDeleagte> {
     
     POAScreen *_poaScreen;
+    InformationAddScreen * _informationAddScreen;
     CGRect _bottomViewRect;
     CGRect _mapViewRect;
     BOOL _POAScreenVisible;

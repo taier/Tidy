@@ -1,11 +1,3 @@
-//
-//  POAObject.h
-//  Tidy
-//
-//  Created by Deniss Kaibagarovs on 22/11/15.
-//  Copyright © 2015 Deniss Kaibagarovs. All rights reserved.
-//
-
 @import UIKit;
 #import <Foundation/Foundation.h>
 

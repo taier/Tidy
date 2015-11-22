@@ -24,6 +24,7 @@
 		B73C0E721C00B8EC00C9CBC8 /* InformationAddScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B73C0E711C00B8EC00C9CBC8 /* InformationAddScreen.m */; };
 		B78085641C01DA3700304913 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B78085631C01DA3700304913 /* WindowsAzureMobileServices.framework */; };
 		B78085661C01DFB500304913 /* placeholder_image.png in Resources */ = {isa = PBXBuildFile; fileRef = B78085651C01DFB500304913 /* placeholder_image.png */; };
+		B780856D1C01EF0A00304913 /* POAObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B780856C1C01EF0A00304913 /* POAObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +54,8 @@
 		B73C0E711C00B8EC00C9CBC8 /* InformationAddScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InformationAddScreen.m; path = Tidy/InformationAddScreen.m; sourceTree = "<group>"; };
 		B78085631C01DA3700304913 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
 		B78085651C01DFB500304913 /* placeholder_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder_image.png; path = DemoImages/placeholder_image.png; sourceTree = "<group>"; };
-		B78085671C01E3B800304913 /* POAObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POAObject.h; path = Tidy/POAObject.h; sourceTree = "<group>"; };
+		B780856B1C01EF0A00304913 /* POAObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POAObject.h; path = Tidy/POAObject.h; sourceTree = "<group>"; };
+		B780856C1C01EF0A00304913 /* POAObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POAObject.m; path = Tidy/POAObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +172,8 @@
 		B780856A1C01E3BB00304913 /* POA Object */ = {
 			isa = PBXGroup;
 			children = (
-				B78085671C01E3B800304913 /* POAObject.h */,
+				B780856B1C01EF0A00304913 /* POAObject.h */,
+				B780856C1C01EF0A00304913 /* POAObject.m */,
 			);
 			name = "POA Object";
 			path = ..;
@@ -256,6 +259,7 @@
 				B72626B01C006E3A00CCF4DD /* ARClusteredMapView.m in Sources */,
 				B703AC301C005DD500E6682B /* main.m in Sources */,
 				B73C0E721C00B8EC00C9CBC8 /* InformationAddScreen.m in Sources */,
+				B780856D1C01EF0A00304913 /* POAObject.m in Sources */,
 				B72626AF1C006E3A00CCF4DD /* ARClusteredAnnotation.m in Sources */,
 				66C6762A1C01C424006C0C2D /* TagViewCell.m in Sources */,
 			);
