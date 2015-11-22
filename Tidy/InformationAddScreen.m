@@ -90,6 +90,8 @@
     appDelegate.lastAddedPOAObject = newPOAObject;
     
     [self.delegate didFinishAdding:newPOAObject];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)onAddImageButtonPress:(id)sender {

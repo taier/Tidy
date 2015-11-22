@@ -127,19 +127,21 @@
         // Add an annotation
         MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
         point.coordinate = newCoord;
-        point.title = @"Where am I?";
-        point.subtitle = @"I'm here!!!";
+        point.title = @"Trash here!";
+        point.subtitle = @"Clean ME!";
         
         [self.mapView addAnnotation:point];
-        
     }
     
     [self.mapView addAnnotations:pins];
 
 }
 
+#pragma  mark Buttons
+
 - (IBAction)onNewPOAButtonPress:(id)sender {
     _informationAddScreen = [self.storyboard instantiateViewControllerWithIdentifier:@"SCREEN_NEW_POA"];
+    _informationAddScreen.delegate = self;
     [self.navigationController pushViewController:_informationAddScreen animated:YES];
 }
 
@@ -274,6 +276,13 @@
 
 - (void)closePOAScreen {
      [self showPOAScreen:false withAnnotation:_selectedAnnotation];
+}
+
+#pragma mark InformationAddScreenDeleagte 
+
+- (void)didFinishAdding:(POAObject *)addedObject {
+    
+    
 }
 
 @end
