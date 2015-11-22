@@ -53,6 +53,13 @@
 }
 
 - (void)showCurrentLocationOnMap {
+    
+    CLLocationCoordinate2D coordinate;
+    coordinate.latitude = 56.9536134;
+    coordinate.longitude = 24.0747749;
+    
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate, 5000, 5000) animated:YES];
+    
     [self.mapView setShowsUserLocation:YES];
 }
 
