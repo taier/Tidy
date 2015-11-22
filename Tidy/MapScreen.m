@@ -7,9 +7,12 @@
 //
 
 #import "MapScreen.h"
+#import "AppDelegate.h"
 #import "ARClusteredMapView.h"
 #import "ARClusteredAnnotation.h"
 #import "POAScreen.h"
+
+#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 @import MapKit;
 
@@ -21,6 +24,10 @@
     BOOL _POAScreenVisible;
     ARClusteredAnnotation *_selectedAnnotation;
     CLLocationManager *_locationManager;
+    
+    NSMutableArray *_pinsData;
+    
+    MSSyncTable *_syncTable;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *viewBottom;
@@ -35,6 +42,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupLocationManager];
+    [self getRemoteData];
+//    [self demoDataSave];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -70,6 +79,8 @@
     
     [_locationManager startUpdatingLocation];
     [_locationManager requestWhenInUseAuthorization];
+    
+    [self setupMapDemoDataWithLocation:56.9536134 longotude:24.0747749];
 }
 
 - (void)setupPOAScreen {
@@ -124,6 +135,48 @@
     }
     
     [self.mapView addAnnotations:pins];
+
+}
+
+#pragma mark Data
+
+- (void)demoDataSave {
+    MSClient *client = [(AppDelegate *)[[UIApplication sharedApplication] delegate] client];
+    
+    UIImage *trashImage = [UIImage imageNamed:@"trash1.jpg"];
+    NSData *imageData = UIImageJPEGRepresentation(trashImage, 0.50);
+    
+    MSTable *goTidyTable = [client tableWithName:@"gotidy_entities"];
+    
+    for(int i=0;i<3;i++) {
+        CGFloat latDelta = rand()*0.125/RAND_MAX - 0.08 + 56.9536134;
+        CGFloat lonDelta = rand()*0.130/RAND_MAX - 0.08 + 24.0747749;
+        
+        NSString *title = [NSString stringWithFormat:@"Title - %i", i];
+        NSString *desc = [NSString stringWithFormat:@"Desc - %i", i];
+        
+        NSDictionary *newDict = @{@"latitude" : [NSString stringWithFormat:@"%0.8f",latDelta],
+                                         @"longtitude" : [NSString stringWithFormat:@"%0.8f",lonDelta],
+                                         @"title" : title,
+                                         @"description" : desc,
+                                         @"votedcount" :[NSString stringWithFormat:@"%i",i],
+                                         @"image" : [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]};
+        
+        [goTidyTable insert:newDict completion:^(NSDictionary *item, NSError *error) {
+            NSLog(@"%@",error.description);
+        }];
+    }
+}
+
+- (void)getRemoteData {
+    
+    MSClient *client = [(AppDelegate *)[[UIApplication sharedApplication] delegate] client];
+    
+    MSTable *table = [client tableWithName:@"gotidy_entities"];
+    
+    [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
+        NSLog(@"%@",result.items);
+    }];
 
 }
 
@@ -207,9 +260,9 @@
 #pragma mark Location Delegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    CLLocation *newLocation = [locations lastObject];
+//    CLLocation *newLocation = [locations lastObject];
     
-    [self setupMapDemoDataWithLocation:newLocation.coordinate.latitude longotude:newLocation.coordinate.longitude];
+//    [self setupMapDemoDataWithLocation:newLocation.coordinate.latitude longotude:newLocation.coordinate.longitude];
 }
 
 #pragma mark POA Screen Delegate

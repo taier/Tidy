@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.client = [MSClient clientWithApplicationURLString:@"https://gotidy.azure-mobile.net/" applicationKey:@"ynUBDqzqazSuUwwIGqqMbWKhxgabhA93"];
     return YES;
 }
 

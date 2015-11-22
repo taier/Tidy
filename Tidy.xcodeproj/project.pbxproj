@@ -22,6 +22,7 @@
 		B73C0E6E1C00AF8900C9CBC8 /* trash2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B73C0E6B1C00AF8900C9CBC8 /* trash2.jpg */; };
 		B73C0E6F1C00AF8900C9CBC8 /* trash3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B73C0E6C1C00AF8900C9CBC8 /* trash3.jpg */; };
 		B73C0E721C00B8EC00C9CBC8 /* InformationAddScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B73C0E711C00B8EC00C9CBC8 /* InformationAddScreen.m */; };
+		B78085641C01DA3700304913 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B78085631C01DA3700304913 /* WindowsAzureMobileServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		B73C0E6C1C00AF8900C9CBC8 /* trash3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = trash3.jpg; path = DemoImages/trash3.jpg; sourceTree = "<group>"; };
 		B73C0E701C00B8EC00C9CBC8 /* InformationAddScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InformationAddScreen.h; path = Tidy/InformationAddScreen.h; sourceTree = "<group>"; };
 		B73C0E711C00B8EC00C9CBC8 /* InformationAddScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InformationAddScreen.m; path = Tidy/InformationAddScreen.m; sourceTree = "<group>"; };
+		B78085631C01DA3700304913 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B78085641C01DA3700304913 /* WindowsAzureMobileServices.framework in Frameworks */,
 				B71376C21C00672800D446D5 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +147,7 @@
 		B72626B71C007ABB00CCF4DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B78085631C01DA3700304913 /* WindowsAzureMobileServices.framework */,
 				B71376C11C00672800D446D5 /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -348,6 +352,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tidy",
+				);
 				INFOPLIST_FILE = Tidy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -360,6 +368,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tidy",
+				);
 				INFOPLIST_FILE = Tidy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
