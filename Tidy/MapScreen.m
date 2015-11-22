@@ -139,7 +139,8 @@
 }
 
 - (IBAction)onNewPOAButtonPress:(id)sender {
-    
+    _informationAddScreen = [self.storyboard instantiateViewControllerWithIdentifier:@"SCREEN_NEW_POA"];
+    [self.navigationController pushViewController:_informationAddScreen animated:YES];
 }
 
 #pragma mark Data
