@@ -80,15 +80,11 @@
     [_locationManager startUpdatingLocation];
     [_locationManager requestWhenInUseAuthorization];
     
-    
-    
     CLLocationCoordinate2D coordinate;
     coordinate.latitude = 56.9536134;
     coordinate.longitude = 24.0747749;
     
     [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate, 5000, 5000) animated:YES];
-    
-//    [self setupMapDemoDataWithLocation:56.9536134 longotude:24.0747749];
 }
 
 - (void)setupPOAScreen {
@@ -320,6 +316,21 @@
     if(addedObject == NULL) {
         return;
     }
+    
+    MSClient *client = [(AppDelegate *)[[UIApplication sharedApplication] delegate] client];
+    MSTable *goTidyTable = [client tableWithName:@"gotidy_entities"];
+    
+    NSDictionary *newDict = @{@"latitude" : [NSString stringWithFormat:@"%0.8f",addedObject.latitude],
+                              @"longtitude" : [NSString stringWithFormat:@"%0.8f",addedObject.longotude],
+                              @"title" : addedObject.title,
+                              @"description" : addedObject.desc,
+                              @"votedcount" : @1};
+    
+    [goTidyTable insert:newDict completion:^(NSDictionary *item, NSError *error) {
+        NSLog(@"%@",error.description);
+    }];
+    
+    [self addPointFromRemoteDataDict:newDict];
 }
 
 @end
